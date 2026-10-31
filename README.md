@@ -32,17 +32,29 @@ The Drift Tracker was built to automatically detect these changes, store histori
 ## Architecture
 
 ```text
-Docker Containers
-	↓
- collect.py
-	↓
- PostgreSQL
-	↓
- Drift Detection Logic
-	↓
- FastAPI
-	↓
- Alerts
++-------------------+
+| Docker Containers |
++-------------------+
+        ↓
+   +------------+
+   | collect.py |
+   +------------+
+        ↓
+   +------------+
+   | PostgreSQL |
+   +------------+
+        ↓
+   +-----------------------+
+   | Drift Detection Logic |
+   +-----------------------+
+        ↓
+   +---------+
+   | FastAPI |
+   +---------+
+        ↓
+   +--------+
+   | Alerts |
+   +--------+
 ```
 
 ## Project Structure
