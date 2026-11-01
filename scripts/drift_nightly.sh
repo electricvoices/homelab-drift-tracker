@@ -2,11 +2,10 @@
 # Nightly drift job: snapshot the stack, check for the new drift, alert via ntfy
 set -u
 
-PROJECT_DIR="$HOME/homelab/scripts"
-PYTHON="$HOME/homelab/.venv/bin/python"
-LOG_FILE="$PROJECT_DIR/drift/nightly.log"
-ENV_FILE="$HOME/homelab/.env"
-NTFY_TOPIC="Drift-Alerts"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+PYTHON="$PROJECT_DIR/.venv/bin/python"
+LOG_FILE="$PROJECT_DIR/nightly.log"
+ENV_FILE="$PROJECT_DIR/.env"
 
 # Read one value from .env, without the spaces & quotes around it
 env_value() {
